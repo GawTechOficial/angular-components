@@ -1,0 +1,9 @@
+<ng-container *ngFor="let structure of structures()">
+  <ng-template
+    [gDynamicForm]="{
+      config: structure,
+      formGroup: formGroup,
+      errorMessages: errorMessages
+    }"
+  />
+</ng-container>

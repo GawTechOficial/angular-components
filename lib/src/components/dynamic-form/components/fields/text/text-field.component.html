@@ -1,0 +1,24 @@
+<g-field-label
+  *ngIf="field?.props?.label"
+  [id]="field.id"
+  [label]="field.props?.label ?? ''"
+  [required]="hasRequiredValidator()"
+></g-field-label>
+
+<input
+  pInputText
+  [formControl]="formControl"
+  [id]="field.id"
+  [name]="field.name"
+  [type]="field.props?.inputType ?? 'text'"
+  [placeholder]="field.props?.placeholder ?? ''"
+  [readonly]="field.props?.readonly ?? false"
+  [maxLength]="field.props?.maxLength ?? null"
+  [autocomplete]="field.props?.browserAutocomplete ?? 'off'"
+  [ngClass]="'mousetrap'"
+  [ngStyle]="field.props?.style"
+  (blur)="onBlurHandler($event)"
+  (input)="onInputHandler($event)"
+  (focus)="onFocusHandler($event)"
+  class="w-full mt-1"
+/>

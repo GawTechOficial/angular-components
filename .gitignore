@@ -1,42 +1,59 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# Angular build output
+/dist
+/.angular
+/.angular/cache
 
 # Compiled output
-/dist
-/tmp
 /out-tsc
-/bazel-out
-
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
-
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+/tmp
+/build
 
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files
+.env
+.env.*.local
+
+# Node modules
+/node_modules
+
+# NPM/Yarn/PNPM logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Tailwind and PostCSS cache
+.postcss-cache
+.tailwind-cache
+*.tailwind.css
+
+# Testing
+/coverage
+karma-*.log
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Misc
+*.swp
+*.bak
+*.orig
+*.tmp
+
+# Mac/Linux hidden files
+*.pid
+*.seed
+*.pid.lock
