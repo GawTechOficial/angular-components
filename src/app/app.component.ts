@@ -30,8 +30,17 @@ export class AppComponent {
 
   public sections: MenuItem[] = [
     {
+      label: 'Navegação',
+      icon: 'fa fa',
+      items: [{ label: 'Breadcrumb', routerLink: 'breadcrumb' }],
+    },
+    {
       label: 'Inputs',
       items: [{ label: 'Dynamic Form', routerLink: 'dynamic-form' }],
+    },
+    {
+      label: 'Feedback',
+      items: [{ label: 'Control Errors', routerLink: 'control-errors' }],
     },
   ];
 

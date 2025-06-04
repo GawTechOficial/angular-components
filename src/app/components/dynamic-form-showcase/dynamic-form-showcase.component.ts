@@ -73,7 +73,7 @@ export class DynamicFormShowcaseComponent implements OnInit {
 
     this.configs = signal([
       {
-        type: StructureType.Section,
+        type: StructureType.Panel,
         header: 'Informações em Painel',
         fields: fields,
       },
