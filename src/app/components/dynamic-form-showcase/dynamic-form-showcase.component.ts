@@ -8,6 +8,7 @@ import {
   Structure,
   StructureType,
 } from '@gawtech/angular-components';
+import { CustomValidators } from '../utils/custom-validators';
 
 @Component({
   selector: 'app-dynamic-form-showcase',
@@ -29,10 +30,9 @@ export class DynamicFormShowcaseComponent implements OnInit {
       createField({
         name: 'name',
         type: FieldType.Text,
-        size: { sm: 12, md: 6 },
+        size: { sm: 12, md: 4 },
         visible: () => true,
-        defaultValue: 'Alguma coisa',
-        validators: [Validators.required],
+        validators: [Validators.required, CustomValidators.noWhitespace],
         disabled: false,
         nonNullable: true,
         props: {
@@ -43,10 +43,23 @@ export class DynamicFormShowcaseComponent implements OnInit {
         },
       }),
       createField({
+        name: 'www',
+        type: FieldType.Text,
+        size: { sm: 12, md: 4 },
+        visible: () => true,
+        validators: [Validators.required],
+        disabled: false,
+        nonNullable: true,
+        props: {
+          label: 'Email',
+          placeholder: 'Digite seu nome',
+        },
+      }),
+      createField({
         name: 'label',
         label: 'Nome completo',
         type: FieldType.Text,
-        size: { sm: 12, md: 6 },
+        size: { sm: 12, md: 4 },
         visible: () => true,
         validators: [Validators.email],
         props: {
@@ -60,7 +73,7 @@ export class DynamicFormShowcaseComponent implements OnInit {
 
     this.configs = signal([
       {
-        type: StructureType.Panel,
+        type: StructureType.Section,
         header: 'Informações em Painel',
         fields: fields,
       },

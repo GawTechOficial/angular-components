@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { BreadcrumbComponent } from 'lib/src/components/breadcrumb/breadcrumb.component';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DrawerModule } from 'primeng/drawer';
 import { InputTextModule } from 'primeng/inputtext';
-import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,6 @@ import { BreadcrumbComponent } from './shared/breadcrumb/breadcrumb.component';
     RouterModule,
     FormsModule,
     InputTextModule,
-    BreadcrumbComponent,
     BreadcrumbComponent,
   ],
 })
@@ -37,8 +36,6 @@ export class AppComponent {
   ];
 
   public filteredSections: MenuItem[] = this.sections;
-
-  constructor(private router: Router) {}
 
   openDrawer() {
     this.drawerVisible = !this.drawerVisible;
