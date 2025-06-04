@@ -1,4 +1,3 @@
-// structure.ts
 import { FormField } from '../fields/form-field';
 import { StructureType } from './structure-type';
 

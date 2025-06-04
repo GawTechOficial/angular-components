@@ -1,0 +1,5 @@
+<ng-container *ngFor="let errorMessage of getErrorMessagesList()">
+  <div *ngIf="errorMessage" class="mt-[0.35rem] text-red-600 text-[12px]">
+    {{ errorMessage }}
+  </div>
+</ng-container>

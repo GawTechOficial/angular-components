@@ -1,5 +1,12 @@
 <div class="flex justify-center bg-">
   <form [formGroup]="formGroup" class="w-full">
-    <g-dynamic-form [formGroup]="formGroup" [configs]="configs" />
+    <g-dynamic-form
+      [formGroup]="formGroup"
+      [configs]="configs"
+      [errorMessages]="{
+        required: 'Campo obrigatório',
+        email: 'E-mail inválido',
+      }"
+    />
   </form>
 </div>

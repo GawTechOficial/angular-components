@@ -1,5 +1,5 @@
 import { AbstractControlOptions, FormControl, FormGroup } from '@angular/forms';
-import { FormField } from 'lib/src/components/dynamic-form/configurations/fields';
+import { FormField } from '../configurations/fields';
 
 export function buildFormGroup(fields: FormField[]): FormGroup {
   const controls: Record<string, FormControl> = {};

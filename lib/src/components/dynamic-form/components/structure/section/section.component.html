@@ -1,0 +1,10 @@
+<h3 *ngIf="structure?.header" class="mb-4">
+  {{ structure.header }}
+</h3>
+<section>
+  <structure-renderer-content
+    [structure]="structure"
+    [formGroup]="formGroup"
+    [errorMessages]="errorMessages"
+  />
+</section>

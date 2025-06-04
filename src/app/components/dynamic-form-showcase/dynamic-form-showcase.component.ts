@@ -1,10 +1,5 @@
 import { Component, OnInit, signal, Signal } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   buildFormGroup,
   createField,
@@ -37,7 +32,7 @@ export class DynamicFormShowcaseComponent implements OnInit {
         size: { sm: 12, md: 6 },
         visible: () => true,
         defaultValue: 'Alguma coisa',
-        validators: [Validators.required, Validators.email],
+        validators: [Validators.required],
         disabled: false,
         nonNullable: true,
         props: {
@@ -53,6 +48,7 @@ export class DynamicFormShowcaseComponent implements OnInit {
         type: FieldType.Text,
         size: { sm: 12, md: 6 },
         visible: () => true,
+        validators: [Validators.email],
         props: {
           label: 'Label',
           placeholder: 'Digite seu nome',
@@ -65,7 +61,7 @@ export class DynamicFormShowcaseComponent implements OnInit {
     this.configs = signal([
       {
         type: StructureType.Panel,
-        header: 'Informações Pessoais',
+        header: 'Informações em Painel',
         fields: fields,
       },
     ]);

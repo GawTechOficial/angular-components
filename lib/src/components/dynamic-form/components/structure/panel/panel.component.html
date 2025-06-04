@@ -15,42 +15,10 @@
   (onAfterToggle)="structure.afterToggle?.($event)"
 >
   <ng-template pTemplate="content">
-    <div class="grid grid-cols-12 gap-4">
-      <ng-container *ngFor="let field of structure.fields">
-        <ng-container *ngIf="!field.visible || field.visible()">
-          <div [ngClass]="getTailwindSize(field)">
-            <ng-template
-              [gDynamicForm]="{
-                config: field,
-                formGroup: formGroup,
-                errorMessages: errorMessages
-              }"
-            ></ng-template>
-
-            <p
-              *ngIf="field.footer?.help?.visible?.({ formField: field })"
-              class="text-sm text-gray-500 mt-1"
-            >
-              {{ field.footer?.help?.text }}
-            </p>
-
-            <button
-              *ngIf="field.footer?.link?.visible?.({ formField: field })"
-              type="button"
-              class="text-primary-500 hover:underline text-sm mt-1"
-              (click)="field.footer?.link?.onClick({ formField: field })"
-            >
-              {{ field.footer?.link?.label }}
-            </button>
-
-            <ng-container *ngIf="field.bottomTemplate">
-              <ng-container
-                *ngTemplateOutlet="field.bottomTemplate"
-              ></ng-container>
-            </ng-container>
-          </div>
-        </ng-container>
-      </ng-container>
-    </div>
+    <structure-renderer-content
+      [structure]="structure"
+      [formGroup]="formGroup"
+      [errorMessages]="errorMessages"
+    />
   </ng-template>
 </p-panel>

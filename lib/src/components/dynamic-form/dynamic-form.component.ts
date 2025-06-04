@@ -7,10 +7,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { normalizeStructure } from './components/structure/normalizeStructure';
-import { StructureType } from './configurations/structure/structure-type';
 import { StructureFieldsComponent } from './components/structure';
+import { normalizeStructure } from './components/structure/normalizeStructure';
 import { Structure } from './configurations/structure';
+import { StructureType } from './configurations/structure/structure-type';
 
 @Component({
   selector: 'g-dynamic-form',
