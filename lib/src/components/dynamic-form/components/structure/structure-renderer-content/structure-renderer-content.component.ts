@@ -1,7 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField } from '../../../configurations/fields';
-import { Section } from '../../../configurations/structure/section';
+import { Structure } from '../../../configurations/structure/structure';
 import { CommonModule } from '@angular/common';
 import { DynamicFormDirective } from '../../../directives/dynamic-form.directive';
 import { ControlErrorsComponent } from '../../../../control-errors/control-errors.component';
@@ -14,7 +14,7 @@ import { ControlErrorsComponent } from '../../../../control-errors/control-error
   imports: [CommonModule, DynamicFormDirective, ControlErrorsComponent],
 })
 export class StructureRendererContentComponent {
-  @Input() structure!: Section;
+  @Input() structure!: Structure;
   @Input() formGroup!: FormGroup;
   @Input() errorMessages?: any;
 

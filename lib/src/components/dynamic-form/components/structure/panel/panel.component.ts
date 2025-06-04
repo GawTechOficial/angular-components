@@ -2,9 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { PanelModule } from 'primeng/panel';
-import { FormField } from '../../../configurations/fields';
-import { Panel } from '../../../configurations/structure';
-import { BaseStructureComponentConfig } from '../../../configurations/structure/base-structure-component';
+import { Structure, StructureType } from '../../../configurations/structure';
 import { StructureRendererContentComponent } from '../structure-renderer-content/structure-renderer-content.component';
 @Component({
   selector: 'app-panel',
@@ -13,8 +11,8 @@ import { StructureRendererContentComponent } from '../structure-renderer-content
   standalone: true,
   imports: [CommonModule, PanelModule, StructureRendererContentComponent],
 })
-export class PanelComponent implements BaseStructureComponentConfig {
-  @Input() structure!: Panel;
+export class PanelComponent {
+  @Input() structure!: Structure<StructureType.Panel>;
   @Input() formGroup!: FormGroup;
   @Input() errorMessages?: any;
 }

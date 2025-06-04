@@ -1,4 +1,5 @@
 @use "./assets/tailwind.css";
+@use "primeicons/primeicons.css";
 
 label.required:after {
   content: " *";

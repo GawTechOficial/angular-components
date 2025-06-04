@@ -3,6 +3,7 @@ import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   buildFormGroup,
   createField,
+  createStructure,
   DynamicFormComponent,
   FieldType,
   Structure,
@@ -19,7 +20,7 @@ import { CustomValidators } from '../utils/custom-validators';
 export class DynamicFormShowcaseComponent implements OnInit {
   formGroup = new FormGroup({});
 
-  configs: Signal<Structure[]> = signal([]);
+  structures: Signal<Structure[]> = signal([]);
 
   public ngOnInit(): void {
     this.createFields();
@@ -28,55 +29,56 @@ export class DynamicFormShowcaseComponent implements OnInit {
   createFields() {
     const fields = [
       createField({
-        name: 'name',
+        name: 'email',
         type: FieldType.Text,
-        size: { sm: 12, md: 4 },
+        size: { sm: 12, md: 12 },
         visible: () => true,
-        validators: [Validators.required, CustomValidators.noWhitespace],
+        validators: [CustomValidators.noWhitespace, Validators.email],
         disabled: false,
         nonNullable: true,
         props: {
           label: 'Email',
-          placeholder: 'Digite seu nome',
+          placeholder: 'Digite seu email',
           onBlur: (e: any) =>
-            console.log('blur name', this.formGroup.get('name')?.value),
+            console.log('blur name', this.formGroup.get('email')?.value),
         },
       }),
       createField({
-        name: 'www',
+        name: 'Endereço',
         type: FieldType.Text,
-        size: { sm: 12, md: 4 },
+        size: { sm: 12, md: 12 },
         visible: () => true,
         validators: [Validators.required],
         disabled: false,
         nonNullable: true,
         props: {
-          label: 'Email',
-          placeholder: 'Digite seu nome',
+          label: 'Endereço',
+          placeholder: 'Digite seu endereço',
         },
       }),
       createField({
-        name: 'label',
-        label: 'Nome completo',
+        name: 'cidade',
+        label: 'Cidade',
         type: FieldType.Text,
         size: { sm: 12, md: 4 },
         visible: () => true,
-        validators: [Validators.email],
         props: {
-          label: 'Label',
-          placeholder: 'Digite seu nome',
+          label: 'Cidade',
+          placeholder: 'Digite sua cidade',
         },
       }),
     ];
 
     this.formGroup = buildFormGroup(fields);
 
-    this.configs = signal([
-      {
+    this.structures = signal([
+      createStructure({
         type: StructureType.Panel,
-        header: 'Informações em Painel',
         fields: fields,
-      },
+        props: {
+          header: 'Dados Pessoais',
+        },
+      }),
     ]);
   }
 }

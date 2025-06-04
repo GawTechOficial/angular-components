@@ -1,9 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormField } from '../../../configurations/fields';
-import { BaseStructureComponentConfig } from '../../../configurations/structure/base-structure-component';
-import { Section } from '../../../configurations/structure/section';
+import { Structure, StructureType } from '../../../configurations/structure';
 import { StructureRendererContentComponent } from '../structure-renderer-content/structure-renderer-content.component';
 
 @Component({
@@ -13,8 +11,8 @@ import { StructureRendererContentComponent } from '../structure-renderer-content
   standalone: true,
   imports: [CommonModule, StructureRendererContentComponent],
 })
-export class SectionComponent implements BaseStructureComponentConfig {
-  @Input() structure!: Section;
+export class SectionComponent {
+  @Input() structure!: Structure<StructureType.Section>;
   @Input() formGroup!: FormGroup;
   @Input() errorMessages?: any;
 }

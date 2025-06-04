@@ -1,3 +1,3 @@
 export enum FieldType {
-  Text = 'Text',
+  Text = 'text',
 }

@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { StructureFieldsComponent } from './components/structure';
-import { normalizeStructure } from './components/structure/normalizeStructure';
 import { Structure } from './configurations/structure';
 import { StructureType } from './configurations/structure/structure-type';
 
@@ -22,12 +21,8 @@ import { StructureType } from './configurations/structure/structure-type';
 export class DynamicFormComponent {
   @Input() id!: string;
   @Input() formGroup!: FormGroup;
-  @Input() configs!: Signal<Structure[]>;
+  @Input() structures!: Signal<Structure[]>;
   @Input() errorMessages?: any;
 
   readonly structureType = StructureType;
-
-  readonly normalizedStructures = computed(() =>
-    this.configs().map(normalizeStructure)
-  );
 }
