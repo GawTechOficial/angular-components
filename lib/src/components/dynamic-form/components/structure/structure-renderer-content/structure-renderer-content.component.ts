@@ -5,6 +5,7 @@ import { Structure } from '../../../configurations/structure/structure';
 import { CommonModule } from '@angular/common';
 import { DynamicFormDirective } from '../../../directives/dynamic-form.directive';
 import { ControlErrorsComponent } from '../../../../control-errors/control-errors.component';
+import { ControlErrorMessages } from 'lib/src/components/control-errors/control-error-messages';
 
 @Component({
   selector: 'structure-renderer-content',
@@ -16,7 +17,7 @@ import { ControlErrorsComponent } from '../../../../control-errors/control-error
 export class StructureRendererContentComponent {
   @Input() structure!: Structure;
   @Input() formGroup!: FormGroup;
-  @Input() errorMessages?: any;
+  @Input() errorMessages?: ControlErrorMessages;
 
   getTailwindSize(field: FormField): string {
     const size = field.size ?? {};

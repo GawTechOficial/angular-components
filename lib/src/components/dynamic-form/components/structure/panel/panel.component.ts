@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { PanelModule } from 'primeng/panel';
 import { Structure, StructureType } from '../../../configurations/structure';
 import { StructureRendererContentComponent } from '../structure-renderer-content/structure-renderer-content.component';
+import { ControlErrorMessages } from 'lib/src/components/control-errors/control-error-messages';
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
@@ -14,5 +15,5 @@ import { StructureRendererContentComponent } from '../structure-renderer-content
 export class PanelComponent {
   @Input() structure!: Structure<StructureType.Panel>;
   @Input() formGroup!: FormGroup;
-  @Input() errorMessages?: any;
+  @Input() errorMessages?: ControlErrorMessages;
 }

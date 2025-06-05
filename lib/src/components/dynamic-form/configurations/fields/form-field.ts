@@ -19,7 +19,6 @@ export interface FormField<T extends FieldType = FieldType> {
   disabled?: boolean;
   nonNullable?: boolean;
   props?: FieldTypePropsMap[T];
-  errorMessages?: () => {} | {};
   footer?: {
     help?: {
       text: string;

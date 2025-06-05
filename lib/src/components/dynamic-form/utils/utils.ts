@@ -1,8 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
 
-/**
- * Marca todos os campos como "dirty" para disparar validações
- */
 export function validateFields(formGroup: FormGroup): void {
   Object.keys(formGroup.controls).forEach((field) => {
     const control = formGroup.get(field);

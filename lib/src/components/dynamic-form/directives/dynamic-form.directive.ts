@@ -20,7 +20,6 @@ export class DynamicFormDirective implements OnChanges, OnDestroy {
   @Input('gDynamicForm') context!: {
     config: FormField | Structure;
     formGroup: FormGroup;
-    errorMessages?: any;
   };
 
   private vcRef = inject(ViewContainerRef);
@@ -38,9 +37,7 @@ export class DynamicFormDirective implements OnChanges, OnDestroy {
     }
 
     this.componentRef = this.vcRef.createComponent(componentType);
-
     const instance = this.componentRef.instance;
-    instance.errorMessages = this.context.errorMessages;
 
     if (this.isField(this.context.config)) {
       const field = this.context.config;
@@ -49,6 +46,7 @@ export class DynamicFormDirective implements OnChanges, OnDestroy {
     } else {
       instance.formGroup = this.context.formGroup;
       instance.structure = this.context.config;
+      instance.errorMessages = this.context.config.errorMessages;
     }
   }
 

@@ -8,6 +8,7 @@ import {
   FieldType,
   Structure,
   StructureType,
+  FormField,
 } from '@gawtech/angular-components';
 import { CustomValidators } from '../utils/custom-validators';
 
@@ -19,7 +20,6 @@ import { CustomValidators } from '../utils/custom-validators';
 })
 export class DynamicFormShowcaseComponent implements OnInit {
   formGroup = new FormGroup({});
-
   structures: Signal<Structure[]> = signal([]);
 
   public ngOnInit(): void {
@@ -70,11 +70,19 @@ export class DynamicFormShowcaseComponent implements OnInit {
     ];
 
     this.formGroup = buildFormGroup(fields);
+    this.createStructures(fields);
+  }
 
+  createStructures(fields: FormField[]) {
     this.structures = signal([
       createStructure({
         type: StructureType.Panel,
         fields: fields,
+        errorMessages: {
+          required: 'Campo obrigatório',
+          email: 'Email inválido',
+          noWhitespace: 'Não pode conter espaços em branco',
+        },
         props: {
           header: 'Dados Pessoais',
         },

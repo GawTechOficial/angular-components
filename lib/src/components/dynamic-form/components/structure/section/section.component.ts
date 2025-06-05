@@ -3,6 +3,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Structure, StructureType } from '../../../configurations/structure';
 import { StructureRendererContentComponent } from '../structure-renderer-content/structure-renderer-content.component';
+import { ControlErrorMessages } from 'lib/src/components/control-errors/control-error-messages';
 
 @Component({
   selector: 'app-section',
@@ -14,5 +15,5 @@ import { StructureRendererContentComponent } from '../structure-renderer-content
 export class SectionComponent {
   @Input() structure!: Structure<StructureType.Section>;
   @Input() formGroup!: FormGroup;
-  @Input() errorMessages?: any;
+  @Input() errorMessages?: ControlErrorMessages;
 }

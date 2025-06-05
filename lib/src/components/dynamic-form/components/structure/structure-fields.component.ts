@@ -14,5 +14,4 @@ import { DynamicFormDirective } from '../../directives/dynamic-form.directive';
 export class StructureFieldsComponent {
   @Input() structures!: Signal<Structure[]>;
   @Input() formGroup!: FormGroup;
-  @Input() errorMessages?: any;
 }

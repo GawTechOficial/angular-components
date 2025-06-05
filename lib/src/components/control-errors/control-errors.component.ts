@@ -5,6 +5,7 @@ import {
 } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ControlErrorMessages } from './control-error-messages';
 
 @Component({
   selector: 'g-control-errors',
@@ -17,7 +18,7 @@ export class ControlErrorsComponent {
 
   @Input() id: string = `g-control-errors-${ControlErrorsComponent.nextId++}`;
   @Input() control!: AbstractControl;
-  @Input() errorMessages: any = {};
+  @Input() errorMessages: ControlErrorMessages = {};
 
   getErrorMessagesList() {
     if (!this.control || !this.control.dirty) {

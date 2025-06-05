@@ -1,13 +1,5 @@
 <div class="flex justify-center bg-">
   <form [formGroup]="formGroup" class="w-full">
-    <g-dynamic-form
-      [formGroup]="formGroup"
-      [structures]="structures"
-      [errorMessages]="{
-        required: 'Campo obrigatório',
-        noWhitespace: 'Não pode conter apenas espaços em branco',
-        email: 'E-mail inválido',
-      }"
-    />
+    <g-dynamic-form [formGroup]="formGroup" [structures]="structures" />
   </form>
 </div>
