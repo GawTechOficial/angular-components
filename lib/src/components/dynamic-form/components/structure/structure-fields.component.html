@@ -1,8 +1,10 @@
 <ng-container *ngFor="let structure of structures()">
-  <ng-template
-    [gDynamicForm]="{
-      config: structure,
-      formGroup: formGroup,
-    }"
-  />
+  <div class="mb-4">
+    <ng-template
+      [gDynamicForm]="{
+        config: structure,
+        formGroup: formGroup,
+      }"
+    />
+  </div>
 </ng-container>
