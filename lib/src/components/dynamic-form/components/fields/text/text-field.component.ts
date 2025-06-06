@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { KeyFilterModule } from 'primeng/keyfilter';
 import { FieldType, FormField } from '../../../configurations/fields';
 import { FieldLabelComponent } from '../../field-label/field-label.component';
-
 @Component({
   selector: 'app-text-field',
   templateUrl: './text-field.component.html',
@@ -21,6 +21,7 @@ import { FieldLabelComponent } from '../../field-label/field-label.component';
     ReactiveFormsModule,
     InputTextModule,
     FieldLabelComponent,
+    KeyFilterModule,
   ],
 })
 export class TextFieldComponent implements AfterViewInit {

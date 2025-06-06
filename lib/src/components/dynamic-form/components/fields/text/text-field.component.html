@@ -7,20 +7,43 @@
   ></g-field-label>
 </div>
 
-<input
-  pInputText
-  [formControl]="formControl"
-  [id]="'input-' + field.id"
-  [name]="field.name"
-  [type]="field.props?.inputType ?? 'text'"
-  [placeholder]="field.props?.placeholder ?? ''"
-  [readonly]="field.props?.readonly ?? false"
-  [maxLength]="field.props?.maxLength ?? 255"
-  [autocomplete]="field.props?.browserAutocomplete ?? 'off'"
-  [ngClass]="'mousetrap'"
-  [ngStyle]="field.props?.style"
-  (blur)="onBlurHandler($event)"
-  (input)="onInputHandler($event)"
-  (focus)="onFocusHandler($event)"
-  class="w-full mt-1"
-/>
+<ng-container *ngIf="!field.props?.keyFilter; else inputKeyFilter">
+  <input
+    pInputText
+    [formControl]="formControl"
+    [id]="'input-' + field.id"
+    [name]="field.name"
+    [type]="field.props?.inputType ?? 'text'"
+    [placeholder]="field.props?.placeholder ?? ''"
+    [readonly]="field.props?.readonly ?? false"
+    [maxLength]="field.props?.maxLength ?? 255"
+    [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
+    [ngClass]="'mousetrap'"
+    [ngStyle]="field.props?.style"
+    (blur)="onBlurHandler($event)"
+    (input)="onInputHandler($event)"
+    (focus)="onFocusHandler($event)"
+    class="w-full mt-1"
+  />
+</ng-container>
+
+<ng-template #inputKeyFilter>
+  <input
+    pInputText
+    [formControl]="formControl"
+    [id]="'input-' + field.id"
+    [name]="field.name"
+    [type]="field.props?.inputType ?? 'text'"
+    [pKeyFilter]="field.props?.keyFilter"
+    [placeholder]="field.props?.placeholder ?? ''"
+    [readonly]="field.props?.readonly ?? false"
+    [maxLength]="field.props?.maxLength ?? 255"
+    [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
+    [ngClass]="'mousetrap'"
+    [ngStyle]="field.props?.style"
+    (blur)="onBlurHandler($event)"
+    (input)="onInputHandler($event)"
+    (focus)="onFocusHandler($event)"
+    class="w-full mt-1"
+  />
+</ng-template>

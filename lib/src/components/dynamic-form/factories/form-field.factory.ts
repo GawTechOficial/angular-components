@@ -1,7 +1,7 @@
 import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
+import { FieldSize, FieldType } from '../configurations/fields';
 import { FormField } from '../configurations/fields/form-field';
 import { FieldTypePropsMap } from '../mappings/field-type-props-map';
-import { FieldType, FieldSize } from '../configurations/fields';
 
 export function createField<T extends FieldType>(config: {
   id?: string;
