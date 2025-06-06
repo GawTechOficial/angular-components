@@ -1,0 +1,34 @@
+<div class="ml-1">
+  <g-field-label
+    *ngIf="field?.props?.label"
+    [id]="field.id"
+    [label]="field.props?.label ?? ''"
+    [required]="hasRequiredValidator()"
+  ></g-field-label>
+</div>
+<p-inputMask
+  [formControl]="formControl"
+  [id]="'input-' + field.id"
+  [mask]="field.props?.mask"
+  [name]="field.name"
+  [type]="field.props?.inputType ?? 'text'"
+  [placeholder]="field.props?.placeholder ?? ''"
+  [readonly]="field.props?.readonly ?? false"
+  [maxlength]="field.props?.maxLength ?? 255"
+  [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
+  [tabindex]="field.props?.tabindex?.toString()"
+  [slotChar]="field.props?.slotChar ?? '_'"
+  [autoClear]="field.props?.autoClear ?? true"
+  [showClear]="field.props?.showClear ?? false"
+  [styleClass]="field.props?.styleClass ?? 'w-full mt-1'"
+  [unmask]="field.props?.unmask ?? false"
+  [characterPattern]="field.props?.characterPattern ?? '.'"
+  [autofocus]="field.props?.autofocus ?? false"
+  [keepBuffer]="field.props?.keepBuffer ?? false"
+  [ngStyle]="field.props?.style"
+  (onBlur)="onBlurHandler($event)"
+  (onInput)="onInputHandler($event)"
+  (onFocus)="onFocusHandler($event)"
+  (onKeydown)="onKeydownHandler($event)"
+  (onClear)="onClearHandler($event)"
+></p-inputMask>

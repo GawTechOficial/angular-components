@@ -7,28 +7,9 @@
   ></g-field-label>
 </div>
 
-<ng-container *ngIf="!field.props?.keyFilter; else inputKeyFilter">
+<ng-container *ngIf="field.props?.keyFilter; else inputTextField">
   <input
-    pInputText
-    [formControl]="formControl"
-    [id]="'input-' + field.id"
-    [name]="field.name"
-    [type]="field.props?.inputType ?? 'text'"
-    [placeholder]="field.props?.placeholder ?? ''"
-    [readonly]="field.props?.readonly ?? false"
-    [maxLength]="field.props?.maxLength ?? 255"
-    [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
-    [ngClass]="'mousetrap'"
-    [ngStyle]="field.props?.style"
-    (blur)="onBlurHandler($event)"
-    (input)="onInputHandler($event)"
-    (focus)="onFocusHandler($event)"
-    class="w-full mt-1"
-  />
-</ng-container>
-
-<ng-template #inputKeyFilter>
-  <input
+    #inputTextField
     pInputText
     [formControl]="formControl"
     [id]="'input-' + field.id"
@@ -39,11 +20,29 @@
     [readonly]="field.props?.readonly ?? false"
     [maxLength]="field.props?.maxLength ?? 255"
     [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
-    [ngClass]="'mousetrap'"
-    [ngStyle]="field.props?.style"
+    [ngStyle]="field.props?.style ?? { width: '100%', marginTop: '0.25rem' }"
     (blur)="onBlurHandler($event)"
     (input)="onInputHandler($event)"
     (focus)="onFocusHandler($event)"
-    class="w-full mt-1"
+  />
+</ng-container>
+
+<ng-template #inputTextField>
+  <input
+    #inputTextField
+    pInputText
+    [formControl]="formControl"
+    [id]="'input-' + field.id"
+    [name]="field.name"
+    [type]="field.props?.inputType ?? 'text'"
+    [placeholder]="field.props?.placeholder ?? ''"
+    [tabindex]="field.props?.tabindex?.toString()"
+    [readonly]="field.props?.readonly ?? false"
+    [maxLength]="field.props?.maxLength ?? 255"
+    [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
+    [ngStyle]="field.props?.style ?? { width: '100%', marginTop: '0.25rem' }"
+    (blur)="onBlurHandler($event)"
+    (input)="onInputHandler($event)"
+    (focus)="onFocusHandler($event)"
   />
 </ng-template>

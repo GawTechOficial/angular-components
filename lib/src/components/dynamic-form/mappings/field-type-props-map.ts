@@ -1,6 +1,8 @@
 import { FieldType } from '../configurations/fields/field-type';
-import { TextFieldProps } from '../configurations/fields/props/text-field-props';
+import { InputTextMaskProps } from '../configurations/fields/props/input-text-mask-props';
+import { InputTextProps } from '../configurations/fields/props/input-text-props';
 
 export type FieldTypePropsMap = {
-  [FieldType.Text]: TextFieldProps;
+  [FieldType.InputText]: InputTextProps;
+  [FieldType.InputTextMask]: InputTextMaskProps;
 };

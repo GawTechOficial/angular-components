@@ -7,25 +7,24 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
-import { KeyFilterModule } from 'primeng/keyfilter';
+import { InputMaskModule } from 'primeng/inputmask';
 import { FieldType, FormField } from '../../../configurations/fields';
 import { FieldLabelComponent } from '../../field-label/field-label.component';
+
 @Component({
-  selector: 'app-text-field',
-  templateUrl: './text-field.component.html',
+  selector: 'app-input-text-mask',
+  templateUrl: './input-text-mask.component.html',
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    InputTextModule,
     FieldLabelComponent,
-    KeyFilterModule,
+    InputMaskModule,
   ],
 })
-export class TextFieldComponent implements AfterViewInit {
-  @Input() field!: FormField<FieldType.Text>;
+export class InputTextMaskComponent implements AfterViewInit {
+  @Input() field!: FormField<FieldType.InputTextMask>;
   @Input() formControl!: FormControl;
 
   constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
@@ -44,6 +43,14 @@ export class TextFieldComponent implements AfterViewInit {
 
   onFocusHandler(event: Event) {
     this.field.props?.onFocus?.(event as FocusEvent);
+  }
+
+  onKeydownHandler(event: Event) {
+    this.field.props?.onKeydown?.(event as KeyboardEvent);
+  }
+
+  onClearHandler(value: any) {
+    this.field.props?.onClear?.(value);
   }
 
   hasRequiredValidator(): boolean {

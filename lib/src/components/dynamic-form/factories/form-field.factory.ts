@@ -23,7 +23,6 @@ export function createField<T extends FieldType>(config: {
     id: config.id ?? 'field-' + config.name,
     name: config.name,
     type: config.type,
-    label: config.label,
     size: config.size,
     tooltip: config.tooltip,
     visible: config.visible ?? (() => true),

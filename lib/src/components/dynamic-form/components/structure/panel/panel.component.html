@@ -9,7 +9,9 @@
   [collapseIcon]="structure.props?.collapseIcon"
   [showHeader]="structure.props?.showHeader ?? true"
   [toggler]="structure.props?.toggler ?? 'icon'"
-  [transitionOptions]="structure.props?.transitionOptions ?? ''"
+  [transitionOptions]="
+    structure.props?.transitionOptions ?? '300ms ease-in-out'
+  "
   [toggleButtonProps]="structure.props?.toggleButtonProps"
   (onBeforeToggle)="structure.props?.beforeToggle?.($event)"
   (onAfterToggle)="structure.props?.afterToggle?.($event)"

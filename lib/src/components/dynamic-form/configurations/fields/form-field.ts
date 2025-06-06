@@ -8,7 +8,6 @@ export interface FormField<T extends FieldType = FieldType> {
   id?: string;
   name: string;
   type: T;
-  label?: string;
   size?: FieldSize;
   tooltip?: string;
   visible?: () => boolean;

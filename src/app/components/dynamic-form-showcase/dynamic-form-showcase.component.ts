@@ -6,9 +6,9 @@ import {
   createStructure,
   DynamicFormComponent,
   FieldType,
+  FormField,
   Structure,
   StructureType,
-  FormField,
 } from '@gawtech/angular-components';
 import { CustomValidators } from '../utils/custom-validators';
 
@@ -30,8 +30,8 @@ export class DynamicFormShowcaseComponent implements OnInit {
     const fields = [
       createField({
         name: 'email',
-        type: FieldType.Text,
-        size: { sm: 12, md: 12 },
+        type: FieldType.InputText,
+        size: { sm: 12, md: 4 },
         visible: () => true,
         validators: [CustomValidators.noWhitespace, Validators.email],
         disabled: false,
@@ -39,32 +39,22 @@ export class DynamicFormShowcaseComponent implements OnInit {
         props: {
           label: 'Email',
           placeholder: 'Digite seu email',
-          onBlur: (e: any) =>
+          onInput: (e: any) =>
             console.log('blur name', this.formGroup.get('email')?.value),
         },
       }),
       createField({
-        name: 'Endereço',
-        type: FieldType.Text,
-        size: { sm: 12, md: 12 },
-        visible: () => true,
-        validators: [Validators.required],
-        disabled: false,
-        nonNullable: true,
-        props: {
-          label: 'Endereço',
-          placeholder: 'Digite seu endereço',
-        },
-      }),
-      createField({
-        name: 'cidade',
-        label: 'Cidade',
-        type: FieldType.Text,
+        name: 'inputMask',
+        type: FieldType.InputTextMask,
         size: { sm: 12, md: 4 },
         visible: () => true,
         props: {
-          label: 'Cidade',
-          placeholder: 'Digite sua cidade',
+          label: 'Input Mask',
+          placeholder: '(99) 99999-9999',
+          mask: '(99) 99999-9999',
+          unmask: true,
+          onBlur: (e: any) =>
+            console.log('blur name', this.formGroup.get('email')?.value),
         },
       }),
     ];

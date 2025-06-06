@@ -1,3 +1,4 @@
 export enum FieldType {
-  Text = 'text',
+  InputText = 'input-text',
+  InputTextMask = 'input-text-mask',
 }
