@@ -3,22 +3,18 @@ import {
   importProvidersFrom,
   provideZoneChangeDetection,
 } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MessageService } from 'primeng/api';
-import { ToastModule } from 'primeng/toast';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
   withInMemoryScrolling,
 } from '@angular/router';
+import Aura from '@primeng/themes/aura';
+import { MessageService } from 'primeng/api';
+import { providePrimeNG } from 'primeng/config';
+import { ToastModule } from 'primeng/toast';
 import { appRoutes } from 'src/app/app.routes';
 
 export const appConfig: ApplicationConfig = {

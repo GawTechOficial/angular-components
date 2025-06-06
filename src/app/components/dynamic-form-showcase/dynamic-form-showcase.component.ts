@@ -33,14 +33,18 @@ export class DynamicFormShowcaseComponent implements OnInit {
         type: FieldType.InputText,
         size: { sm: 12, md: 4 },
         visible: () => true,
-        validators: [CustomValidators.noWhitespace, Validators.email],
+        validators: [
+          CustomValidators.noWhitespace,
+          Validators.email,
+          Validators.required,
+        ],
         disabled: false,
         nonNullable: true,
         props: {
           label: 'Email',
-          placeholder: 'Digite seu email',
-          onInput: (e: any) =>
-            console.log('blur name', this.formGroup.get('email')?.value),
+          labelType: 'float',
+          floatLabelVariant: 'on',
+          size: 'small',
         },
       }),
       createField({
@@ -50,7 +54,8 @@ export class DynamicFormShowcaseComponent implements OnInit {
         visible: () => true,
         props: {
           label: 'Input Mask',
-          placeholder: '(99) 99999-9999',
+          labelType: 'float',
+          floatLabelVariant: 'on',
           mask: '(99) 99999-9999',
           unmask: true,
           onBlur: (e: any) =>

@@ -1,10 +1,16 @@
-import { BaseFieldProps } from './base-field-props';
+import { FloatLabelVariant, LabelType } from '../label-type';
 
-export interface InputTextMaskProps extends BaseFieldProps {
+export interface InputTextMaskProps {
   mask: string;
+  label?: string;
+  labelType?: LabelType;
+  floatLabelVariant?: FloatLabelVariant;
+  placeholder?: string;
+  readonly?: boolean;
   inputType?: string;
   tabindex?: number;
   maxLength?: string | number;
+  size?: 'small' | 'large';
   browserAutocomplete?: boolean;
   style?: { [klass: string]: any };
   slotChar?: string;

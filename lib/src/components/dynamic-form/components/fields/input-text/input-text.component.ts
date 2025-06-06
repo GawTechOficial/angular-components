@@ -11,7 +11,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { FieldType, FormField } from '../../../configurations/fields';
-import { FieldLabelComponent } from '../../field-label/field-label.component';
+import { LabelLayoutComponent } from '../label-layout/label-layout.component';
 
 @Component({
   selector: 'app-input-text',
@@ -22,7 +22,7 @@ import { FieldLabelComponent } from '../../field-label/field-label.component';
     CommonModule,
     ReactiveFormsModule,
     InputTextModule,
-    FieldLabelComponent,
+    LabelLayoutComponent,
     KeyFilterModule,
     InputMaskModule,
   ],
@@ -47,6 +47,32 @@ export class InputTextComponent implements AfterViewInit {
 
   onFocusHandler(event: Event) {
     this.field.props?.onFocus?.(event as FocusEvent);
+  }
+
+  getInputStyle(): Record<string, string> {
+    const style = this.field.props?.style;
+    const labelType = this.field.props?.labelType;
+
+    if (style) {
+      return style;
+    }
+
+    if (labelType && labelType !== 'default') {
+      return { width: '100%' };
+    }
+
+    return { width: '100%', marginTop: '0.25rem' };
+  }
+
+  getInputClasses(): string[] {
+    const classes = [];
+    const size = this.field.props?.size;
+    if (size === 'small') {
+      classes.push('p-inputtext-sm');
+    } else if (size === 'large') {
+      classes.push('p-inputtext-lg');
+    }
+    return classes;
   }
 
   hasRequiredValidator(): boolean {

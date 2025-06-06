@@ -1,0 +1,36 @@
+<ng-container [ngSwitch]="labelType ?? 'default'">
+  <p-floatlabel *ngSwitchCase="'float'" [variant]="floatVariant ?? 'over'">
+    <ng-container *ngTemplateOutlet="fieldTemplate ?? null"></ng-container>
+    <g-label
+      *ngIf="label"
+      [id]="id"
+      [for]="for"
+      [label]="label"
+      [required]="isRequired"
+    ></g-label>
+  </p-floatlabel>
+
+  <p-iftalabel *ngSwitchCase="'ifta'">
+    <ng-container *ngTemplateOutlet="fieldTemplate ?? null"></ng-container>
+    <g-label
+      *ngIf="label"
+      [id]="id"
+      [for]="for"
+      [label]="label"
+      [required]="isRequired"
+    ></g-label>
+  </p-iftalabel>
+
+  <div *ngSwitchDefault class="ml-1">
+    <div class="ml-1">
+      <g-label
+        *ngIf="label"
+        [id]="id"
+        [for]="for"
+        [label]="label"
+        [required]="isRequired"
+      ></g-label>
+    </div>
+    <ng-container *ngTemplateOutlet="fieldTemplate ?? null"></ng-container>
+  </div>
+</ng-container>

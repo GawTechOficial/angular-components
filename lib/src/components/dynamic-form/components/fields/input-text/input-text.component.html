@@ -1,48 +1,61 @@
-<div class="ml-1">
-  <g-field-label
-    *ngIf="field?.props?.label"
-    [id]="field.id"
-    [label]="field.props?.label ?? ''"
-    [required]="hasRequiredValidator()"
-  ></g-field-label>
-</div>
-
 <ng-container *ngIf="field.props?.keyFilter; else inputTextField">
-  <input
-    #inputTextField
-    pInputText
-    [formControl]="formControl"
-    [id]="'input-' + field.id"
-    [name]="field.name"
-    [type]="field.props?.inputType ?? 'text'"
-    [pKeyFilter]="field.props?.keyFilter"
-    [placeholder]="field.props?.placeholder ?? ''"
-    [readonly]="field.props?.readonly ?? false"
-    [maxLength]="field.props?.maxLength ?? 255"
-    [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
-    [ngStyle]="field.props?.style ?? { width: '100%', marginTop: '0.25rem' }"
-    (blur)="onBlurHandler($event)"
-    (input)="onInputHandler($event)"
-    (focus)="onFocusHandler($event)"
-  />
+  <g-label-layout
+    [labelType]="field.props?.labelType ?? 'default'"
+    [floatVariant]="field.props?.floatLabelVariant ?? 'over'"
+    [label]="field.props?.label ?? ''"
+    [id]="field.id ?? 'input'"
+    [for]="'input-' + field.id"
+    [isRequired]="hasRequiredValidator()"
+  >
+    <ng-template #fieldContent>
+      <input
+        pInputText
+        [formControl]="formControl"
+        [id]="'input-' + field.id"
+        [name]="field.name"
+        [type]="field.props?.inputType ?? 'text'"
+        [pKeyFilter]="field.props?.keyFilter"
+        [placeholder]="field.props?.placeholder ?? ''"
+        [readonly]="field.props?.readonly ?? false"
+        [maxLength]="field.props?.maxLength ?? 255"
+        [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
+        [ngStyle]="getInputStyle()"
+        class="{{ getInputClasses() }}"
+        (blur)="onBlurHandler($event)"
+        (input)="onInputHandler($event)"
+        (focus)="onFocusHandler($event)"
+      />
+    </ng-template>
+  </g-label-layout>
 </ng-container>
 
 <ng-template #inputTextField>
-  <input
-    #inputTextField
-    pInputText
-    [formControl]="formControl"
-    [id]="'input-' + field.id"
-    [name]="field.name"
-    [type]="field.props?.inputType ?? 'text'"
-    [placeholder]="field.props?.placeholder ?? ''"
-    [tabindex]="field.props?.tabindex?.toString()"
-    [readonly]="field.props?.readonly ?? false"
-    [maxLength]="field.props?.maxLength ?? 255"
-    [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
-    [ngStyle]="field.props?.style ?? { width: '100%', marginTop: '0.25rem' }"
-    (blur)="onBlurHandler($event)"
-    (input)="onInputHandler($event)"
-    (focus)="onFocusHandler($event)"
-  />
+  <g-label-layout
+    [labelType]="field.props?.labelType ?? 'default'"
+    [floatVariant]="field.props?.floatLabelVariant ?? 'over'"
+    [label]="field.props?.label ?? ''"
+    [id]="field.id ?? 'input'"
+    [for]="'input-' + field.id"
+    [isRequired]="hasRequiredValidator()"
+  >
+    <ng-template #fieldContent>
+      <input
+        pInputText
+        [formControl]="formControl"
+        [id]="'input-' + field.id"
+        [name]="field.name"
+        [type]="field.props?.inputType ?? 'text'"
+        [placeholder]="field.props?.placeholder ?? ''"
+        [tabindex]="field.props?.tabindex?.toString()"
+        [readonly]="field.props?.readonly ?? false"
+        [maxLength]="field.props?.maxLength ?? 255"
+        [autocomplete]="field.props?.browserAutocomplete ? 'on' : 'off'"
+        [ngStyle]="getInputStyle()"
+        class="{{ getInputClasses() }}"
+        (blur)="onBlurHandler($event)"
+        (input)="onInputHandler($event)"
+        (focus)="onFocusHandler($event)"
+      />
+    </ng-template>
+  </g-label-layout>
 </ng-template>

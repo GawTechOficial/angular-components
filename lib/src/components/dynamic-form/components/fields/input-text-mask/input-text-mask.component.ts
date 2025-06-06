@@ -9,7 +9,7 @@ import {
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { FieldType, FormField } from '../../../configurations/fields';
-import { FieldLabelComponent } from '../../field-label/field-label.component';
+import { LabelLayoutComponent } from '../label-layout/label-layout.component';
 
 @Component({
   selector: 'app-input-text-mask',
@@ -18,8 +18,8 @@ import { FieldLabelComponent } from '../../field-label/field-label.component';
   standalone: true,
   imports: [
     CommonModule,
+    LabelLayoutComponent,
     ReactiveFormsModule,
-    FieldLabelComponent,
     InputMaskModule,
   ],
 })
@@ -51,6 +51,26 @@ export class InputTextMaskComponent implements AfterViewInit {
 
   onClearHandler(value: any) {
     this.field.props?.onClear?.(value);
+  }
+
+  get validSize(): 'small' | 'large' | null {
+    const size = this.field.props?.size;
+    return size === 'small' || size === 'large' ? size : null;
+  }
+
+  getInputStyleClass(): string {
+    const styleClass = this.field.props?.styleClass;
+    const labelType = this.field.props?.labelType;
+
+    if (styleClass) {
+      return styleClass;
+    }
+
+    if (labelType && labelType !== 'default') {
+      return 'w-full';
+    }
+
+    return 'w-full mt-1';
   }
 
   hasRequiredValidator(): boolean {
