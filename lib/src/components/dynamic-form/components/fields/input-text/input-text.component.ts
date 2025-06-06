@@ -64,7 +64,7 @@ export class InputTextComponent implements AfterViewInit {
     return { width: '100%', marginTop: '0.25rem' };
   }
 
-  getInputClasses(): string[] {
+  getSizeClasses(): string[] {
     const classes = [];
     const size = this.field.props?.size;
     if (size === 'small') {
