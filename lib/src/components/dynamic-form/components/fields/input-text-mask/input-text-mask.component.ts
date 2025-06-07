@@ -53,6 +53,10 @@ export class InputTextMaskComponent implements AfterViewInit {
     this.field.props?.onClear?.(value);
   }
 
+  onCompleteHandler(event: any) {
+    this.field.props?.onComplete?.(event);
+  }
+
   get validSize(): 'small' | 'large' | null {
     const size = this.field.props?.size;
     return size === 'small' || size === 'large' ? size : null;
