@@ -1,0 +1,15 @@
+<div class="flex-col justify-center">
+  <div class="flex justify-end">
+    <p-select
+      [options]="inputTextVariants"
+      [(ngModel)]="activeInputTextVariant"
+      (onChange)="generateFormByVariant($event.value.value)"
+      optionLabel="label"
+      placeholder="Selecione o estilo"
+      class="w-full md:w-56"
+    />
+  </div>
+  <form [formGroup]="formGroup" class="w-full">
+    <g-dynamic-form [formGroup]="formGroup" [structures]="structures" />
+  </form>
+</div>

@@ -1,0 +1,89 @@
+<label
+  *ngIf="props.label && (props.labelType === 'default' || !props.labelType)"
+  class="mb-1 ml-1 block"
+  id="{{ 'label-' + field.id }}"
+  [for]="for"
+>
+  {{ props.label }}
+  <span *ngIf="hasRequiredValidator()" class="text-red-500">*</span>
+</label>
+
+<ng-container *ngIf="hasAnyAddon; else noAddon">
+  <p-inputGroup>
+    <p-inputgroup-addon *ngIf="hasLeftAddon">
+      <ng-container [ngSwitch]="leftAddonType">
+        <span *ngSwitchCase="'text'">
+          {{ leftAddon }}
+        </span>
+
+        <i *ngSwitchCase="'icon'" [class]="leftAddon"></i>
+      </ng-container>
+    </p-inputgroup-addon>
+
+    <ng-container *ngTemplateOutlet="resolvedLayoutTemplate"></ng-container>
+
+    <p-inputgroup-addon *ngIf="hasRightAddon">
+      <ng-container [ngSwitch]="rightAddonType">
+        <span *ngSwitchCase="'text'">
+          {{ rightAddon }}
+        </span>
+
+        <i *ngSwitchCase="'icon'" [class]="rightAddon"></i>
+      </ng-container>
+    </p-inputgroup-addon>
+  </p-inputGroup>
+</ng-container>
+
+<ng-template #noAddon>
+  <ng-container *ngTemplateOutlet="resolvedLayoutTemplate"></ng-container>
+</ng-template>
+
+<ng-template #resolvedLayoutTemplate>
+  <ng-container [ngSwitch]="props.labelType ?? 'default'">
+    <!-- FLOAT LABEL -->
+    <p-floatlabel
+      *ngSwitchCase="'float'"
+      [variant]="props.floatLabelVariant ?? 'over'"
+    >
+      <ng-container *ngTemplateOutlet="resolvedIconTemplate"></ng-container>
+      <label *ngIf="props.label" id="{{ 'label-' + field.id }}" [for]="for">
+        {{ props.label }}
+        <span *ngIf="hasRequiredValidator()" class="text-red-500">*</span>
+      </label>
+    </p-floatlabel>
+
+    <!-- IFTA LABEL -->
+    <p-iftalabel *ngSwitchCase="'ifta'">
+      <ng-container *ngTemplateOutlet="resolvedIconTemplate"></ng-container>
+      <label *ngIf="props.label" id="{{ 'label-' + field.id }}" [for]="for">
+        {{ props.label }}
+        <span *ngIf="hasRequiredValidator()" class="text-red-500">*</span>
+      </label>
+    </p-iftalabel>
+
+    <!-- DEFAULT -->
+    <ng-container *ngSwitchDefault>
+      <ng-container *ngTemplateOutlet="resolvedIconTemplate"></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-template #resolvedIconTemplate>
+  <ng-container *ngIf="hasIcon && !hasAnyAddon; else noIcon">
+    <p-iconField>
+      <ng-container *ngIf="leftIcon" pPrefix>
+        <p-inputicon [styleClass]="leftIcon" />
+      </ng-container>
+
+      <ng-container *ngTemplateOutlet="inputField ?? null"></ng-container>
+
+      <ng-container *ngIf="rightIcon" pSuffix>
+        <p-inputicon [styleClass]="rightIcon" />
+      </ng-container>
+    </p-iconField>
+  </ng-container>
+
+  <ng-template #noIcon>
+    <ng-container *ngTemplateOutlet="inputField ?? null"></ng-container>
+  </ng-template>
+</ng-template>

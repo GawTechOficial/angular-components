@@ -1,18 +1,23 @@
-import { FloatLabelVariant, LabelType } from '../label-type';
+import { FloatLabelVariant } from '../label-type';
+import {
+  AddonConfigProps,
+  IconConfigProps,
+  LabelConfigProps,
+} from './input-shared-props';
 
-export interface InputTextMaskProps {
-  mask: string;
+type BaseInputTextMaskProps = {
   label?: string;
-  labelType?: LabelType;
   floatLabelVariant?: FloatLabelVariant;
-  placeholder?: string;
+
+  // Input behavior
+  mask: string;
   readonly?: boolean;
   inputType?: string;
   tabindex?: number;
   maxLength?: string | number;
   size?: 'small' | 'large';
-  browserAutocomplete?: boolean;
   style?: { [klass: string]: any };
+  browserAutocomplete?: boolean;
   slotChar?: string;
   autoClear?: boolean;
   showClear?: boolean;
@@ -21,6 +26,7 @@ export interface InputTextMaskProps {
   characterPattern?: string;
   autofocus?: boolean;
   keepBuffer?: boolean;
+  // Events
   onBlur?: (e: FocusEvent) => void;
   onComplete?: (event: FocusEvent) => void;
   onInput?: (e: InputEvent) => void;
@@ -31,4 +37,9 @@ export interface InputTextMaskProps {
    * Only works if showClear is true.
    */
   onClear?: (value: any) => void;
-}
+};
+
+export type InputTextMaskProps = BaseInputTextMaskProps &
+  LabelConfigProps &
+  AddonConfigProps &
+  IconConfigProps;

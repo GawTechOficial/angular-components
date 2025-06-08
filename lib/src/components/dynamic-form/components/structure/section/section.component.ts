@@ -6,7 +6,7 @@ import { StructureRendererContentComponent } from '../structure-renderer-content
 import { ControlErrorMessages } from 'lib/src/components/control-errors/control-error-messages';
 
 @Component({
-  selector: 'app-section',
+  selector: 'g-section',
   templateUrl: './section.component.html',
   encapsulation: ViewEncapsulation.None,
   standalone: true,

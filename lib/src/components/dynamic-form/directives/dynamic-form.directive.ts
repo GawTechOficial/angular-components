@@ -1,14 +1,13 @@
 import {
   ComponentRef,
   Directive,
-  inject,
   Input,
   OnChanges,
   OnDestroy,
   Type,
   ViewContainerRef,
 } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { DynamicFormContext } from '../configurations/directive/dynamic-form-context';
 import { FieldType, FormField } from '../configurations/fields';
 import { Structure, StructureType } from '../configurations/structure';
 
@@ -17,15 +16,11 @@ import { Structure, StructureType } from '../configurations/structure';
   standalone: true,
 })
 export class DynamicFormDirective implements OnChanges, OnDestroy {
-  @Input('gDynamicForm') context!: {
-    config: FormField | Structure;
-    formGroup: FormGroup;
-  };
+  @Input('gDynamicForm') context!: DynamicFormContext;
 
-  private vcRef = inject(ViewContainerRef);
   private componentRef?: ComponentRef<any>;
 
-  constructor(public viewContainerRef: ViewContainerRef) {}
+  constructor(private readonly vcRef: ViewContainerRef) {}
 
   async ngOnChanges(): Promise<void> {
     this.vcRef.clear();

@@ -7,7 +7,6 @@ export function createField<T extends FieldType>(config: {
   id?: string;
   name: string;
   type: T;
-  label?: string;
   size?: FieldSize;
   tooltip?: string;
   visible?: () => boolean;
