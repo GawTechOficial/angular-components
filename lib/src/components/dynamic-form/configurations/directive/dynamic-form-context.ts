@@ -1,8 +1,8 @@
 import { FormGroup } from '@angular/forms';
-import { FormField } from '../fields';
+import { AnyFormField } from '../fields';
 import { Structure } from '../structure';
 
 export interface DynamicFormContext {
-  config: FormField | Structure;
+  config: AnyFormField | Structure;
   formGroup: FormGroup;
 }

@@ -8,7 +8,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { DynamicFormContext } from '../configurations/directive/dynamic-form-context';
-import { FieldType, FormField } from '../configurations/fields';
+import { AnyFormField, FieldType } from '../configurations/fields';
 import { Structure, StructureType } from '../configurations/structure';
 
 @Directive({
@@ -82,7 +82,7 @@ export class DynamicFormDirective implements OnChanges, OnDestroy {
     return null;
   }
 
-  private isField(config: any): config is FormField {
+  private isField(config: any): config is AnyFormField {
     return Object.values(FieldType).includes(config.type);
   }
 
