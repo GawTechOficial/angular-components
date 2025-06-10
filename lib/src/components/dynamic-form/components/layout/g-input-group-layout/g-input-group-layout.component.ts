@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
+  AfterContentInit,
   Component,
   ContentChild,
   Input,
@@ -20,13 +21,14 @@ import {
   InputTextProps,
 } from '../../../configurations/fields';
 import {
+  AddonType,
   LeftAddon,
   RightAddon,
 } from '../../../configurations/fields/props/input-shared-props';
 
 @Component({
   selector: 'g-input-layout',
-  templateUrl: './g-Input-layout.component.html',
+  templateUrl: './g-input-group-layout.component.html',
   standalone: true,
   encapsulation: ViewEncapsulation.None,
   imports: [
@@ -39,11 +41,22 @@ import {
     IftaLabelModule,
   ],
 })
-export class GInputLayoutComponent {
-  @Input() field!: FormField<FieldType.InputText | FieldType.InputTextMask>;
+export class GInputGroupLayoutComponent implements AfterContentInit {
+  @Input() field!: FormField<
+    string,
+    FieldType.InputText | FieldType.InputTextMask,
+    any
+  >;
   @Input() for: string = '';
+  @Input() fieldTemplate!: TemplateRef<any>;
 
-  @ContentChild(TemplateRef) inputField!: TemplateRef<any>;
+  ngAfterContentInit() {
+    if (!this.fieldTemplate) {
+      console.warn(
+        'g-input-layout: nenhum conteúdo #fieldTemplate foi fornecido!'
+      );
+    }
+  }
 
   get props(): Partial<InputTextProps | InputTextMaskProps> {
     return this.field?.props ?? {};
@@ -65,7 +78,7 @@ export class GInputLayoutComponent {
     return this.leftAddonRaw?.leftAddon;
   }
 
-  get leftAddonType(): 'text' | 'icon' | undefined {
+  get leftAddonType(): AddonType | undefined {
     return this.leftAddonRaw?.leftAddonType;
   }
 
@@ -73,7 +86,7 @@ export class GInputLayoutComponent {
     return this.rightAddonRaw?.rightAddon;
   }
 
-  get rightAddonType(): 'text' | 'icon' | undefined {
+  get rightAddonType(): AddonType | undefined {
     return this.rightAddonRaw?.rightAddonType;
   }
 

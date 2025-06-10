@@ -1,14 +1,14 @@
-<label
-  *ngIf="props.label && (props.labelType === 'default' || !props.labelType)"
-  class="mb-1 ml-1 block"
-  id="{{ 'label-' + field.id }}"
-  [for]="for"
->
-  {{ props.label }}
-  <span *ngIf="hasRequiredValidator()" class="text-red-500">*</span>
-</label>
+<ng-container *ngIf="hasAnyAddon">
+  <label
+    *ngIf="props.label && (props.labelType === 'default' || !props.labelType)"
+    class="mb-1 ml-1 block"
+    id="{{ 'label-' + field.id }}"
+    [for]="for"
+  >
+    {{ props.label }}
+    <span *ngIf="hasRequiredValidator()" class="text-red-500">*</span>
+  </label>
 
-<ng-container *ngIf="hasAnyAddon; else noAddon">
   <p-inputGroup>
     <p-inputgroup-addon *ngIf="hasLeftAddon">
       <ng-container [ngSwitch]="leftAddonType">
@@ -33,10 +33,6 @@
     </p-inputgroup-addon>
   </p-inputGroup>
 </ng-container>
-
-<ng-template #noAddon>
-  <ng-container *ngTemplateOutlet="resolvedLayoutTemplate"></ng-container>
-</ng-template>
 
 <ng-template #resolvedLayoutTemplate>
   <ng-container [ngSwitch]="props.labelType ?? 'default'">
@@ -75,7 +71,7 @@
         <p-inputicon [styleClass]="leftIcon" />
       </ng-container>
 
-      <ng-container *ngTemplateOutlet="inputField ?? null"></ng-container>
+      <ng-container *ngTemplateOutlet="fieldTemplate ?? null"></ng-container>
 
       <ng-container *ngIf="rightIcon" pSuffix>
         <p-inputicon [styleClass]="rightIcon" />
@@ -84,6 +80,6 @@
   </ng-container>
 
   <ng-template #noIcon>
-    <ng-container *ngTemplateOutlet="inputField ?? null"></ng-container>
+    <ng-container *ngTemplateOutlet="fieldTemplate ?? null"></ng-container>
   </ng-template>
 </ng-template>
