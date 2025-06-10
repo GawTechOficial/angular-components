@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "scripts": {
     "start": "ng serve --port 4300",
-    "version:lib": "npm version patch --prefix lib",
+    "build": "ng build",
     "build:lib": "ng build angular-components-lib",
+    "version:lib": "npm version patch --prefix lib",
     "publish:lib": "npm run build:lib && cd dist/angular-components-lib && npm publish --access public"
   },
   "private": true,

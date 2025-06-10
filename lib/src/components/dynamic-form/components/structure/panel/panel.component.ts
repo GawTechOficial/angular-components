@@ -6,7 +6,7 @@ import { Structure, StructureType } from '../../../configurations/structure';
 import { StructureRendererContentComponent } from '../structure-renderer-content/structure-renderer-content.component';
 import { ControlErrorMessages } from 'lib/src/components/control-errors/control-error-messages';
 @Component({
-  selector: 'app-panel',
+  selector: 'g-panel',
   templateUrl: './panel.component.html',
   encapsulation: ViewEncapsulation.None,
   standalone: true,

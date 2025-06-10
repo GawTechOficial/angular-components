@@ -1,5 +1,18 @@
-<div class="flex justify-center bg-">
-  <form [formGroup]="formGroup" class="w-full">
-    <g-dynamic-form [formGroup]="formGroup" [structures]="structures" />
-  </form>
+<div class="card">
+  <p-tabs value="0">
+    <p-tablist>
+      <p-tab value="0">Input Text</p-tab>
+      <p-tab value="1">Input Mask</p-tab>
+    </p-tablist>
+    <p-tabpanels>
+      <p-tabpanel value="0">
+        <app-input-text-showcase></app-input-text-showcase>
+      </p-tabpanel>
+      <p-tabpanel value="1">
+        <p class="m-0">
+          implementation of input mask functionality. This tab can be used to
+        </p>
+      </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
 </div>

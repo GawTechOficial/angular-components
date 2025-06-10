@@ -9,22 +9,22 @@ import {
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { FieldType, FormField } from '../../../configurations/fields';
-import { LabelLayoutComponent } from '../label-layout/label-layout.component';
+import { GInputGroupLayoutComponent } from '../../layout/g-input-group-layout/g-input-group-layout.component';
 
 @Component({
-  selector: 'app-input-text-mask',
+  selector: 'g-input-text-mask',
   templateUrl: './input-text-mask.component.html',
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [
     CommonModule,
-    LabelLayoutComponent,
     ReactiveFormsModule,
     InputMaskModule,
+    GInputGroupLayoutComponent,
   ],
 })
 export class InputTextMaskComponent implements AfterViewInit {
-  @Input() field!: FormField<FieldType.InputTextMask>;
+  @Input() field!: FormField<string, FieldType.InputTextMask, any>;
   @Input() formControl!: FormControl;
 
   constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
@@ -64,31 +64,11 @@ export class InputTextMaskComponent implements AfterViewInit {
 
   getInputStyleClass(): string {
     const styleClass = this.field.props?.styleClass;
-    const labelType = this.field.props?.labelType;
 
     if (styleClass) {
       return styleClass;
     }
 
-    if (labelType && labelType !== 'default') {
-      return 'w-full';
-    }
-
-    return 'w-full mt-1';
-  }
-
-  hasRequiredValidator(): boolean {
-    if (!this.field.validators?.length) {
-      return false;
-    }
-
-    const control = new FormControl('');
-
-    return (
-      this.field.validators.some((validator) => {
-        const errors = validator(control);
-        return errors?.['required'];
-      }) ?? false
-    );
+    return 'w-full';
   }
 }
