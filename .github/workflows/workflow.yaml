@@ -16,5 +16,5 @@ jobs:
       - name: Build and test
         run: |
           npm run build
+          npm run build:lib
           npm test
-          ng build angular-components-lib
