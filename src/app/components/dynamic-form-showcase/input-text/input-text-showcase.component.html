@@ -3,7 +3,7 @@
     <p-select
       [options]="inputTextVariants"
       [(ngModel)]="activeInputTextVariant"
-      (onChange)="generateFormByVariant($event.value.value)"
+      (onChange)="onVariantChange($event.value.value)"
       optionLabel="label"
       placeholder="Selecione o estilo"
       class="w-full md:w-56"
@@ -12,4 +12,7 @@
   <form [formGroup]="formGroup" class="w-full">
     <g-dynamic-form [formGroup]="formGroup" [structures]="structures" />
   </form>
+  <div class="pt-2">
+    <p-divider />
+  </div>
 </div>
