@@ -1,0 +1,66 @@
+<ng-container *ngIf="hasAnyAddon; else noAddon">
+  <g-input-layout [field]="field" [for]="for" [fieldTemplate]="fieldTemplate">
+  </g-input-layout>
+</ng-container>
+
+<ng-template #noAddon>
+  <ng-container [ngSwitch]="props.labelType ?? 'default'">
+    <p-floatlabel
+      *ngSwitchCase="'float'"
+      [variant]="props.floatLabelVariant ?? 'over'"
+    >
+      <ng-container *ngTemplateOutlet="resolvedIconTemplate"></ng-container>
+      <g-label
+        *ngIf="props.label"
+        [id]="field.id"
+        [for]="for"
+        [label]="props.label"
+        [required]="hasRequiredValidator()"
+      ></g-label>
+    </p-floatlabel>
+
+    <p-iftalabel *ngSwitchCase="'ifta'">
+      <ng-container *ngTemplateOutlet="resolvedIconTemplate"></ng-container>
+      <g-label
+        *ngIf="props.label"
+        [id]="field.id"
+        [for]="for"
+        [label]="props.label"
+        [required]="hasRequiredValidator()"
+      ></g-label>
+    </p-iftalabel>
+
+    <div *ngSwitchDefault class="ml-1">
+      <div class="ml-1">
+        <g-label
+          *ngIf="props.label"
+          [id]="field.id"
+          [for]="for"
+          [label]="props.label"
+          [required]="hasRequiredValidator()"
+        ></g-label>
+      </div>
+      <ng-container *ngTemplateOutlet="resolvedIconTemplate"></ng-container>
+    </div>
+  </ng-container>
+
+  <ng-template #resolvedIconTemplate>
+    <ng-container *ngIf="hasIcon && !hasAnyAddon; else noIcon">
+      <p-iconField>
+        <ng-container *ngIf="leftIcon" pPrefix>
+          <p-inputicon [styleClass]="leftIcon" />
+        </ng-container>
+
+        <ng-container *ngTemplateOutlet="fieldTemplate ?? null"></ng-container>
+
+        <ng-container *ngIf="rightIcon" pSuffix>
+          <p-inputicon [styleClass]="rightIcon" />
+        </ng-container>
+      </p-iconField>
+    </ng-container>
+
+    <ng-template #noIcon>
+      <ng-container *ngTemplateOutlet="fieldTemplate ?? null"></ng-container>
+    </ng-template>
+  </ng-template>
+</ng-template>
