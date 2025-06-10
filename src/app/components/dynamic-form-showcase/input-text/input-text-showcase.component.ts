@@ -31,7 +31,7 @@ export class InputTextShowcaseComponent implements OnInit {
 
   structures: Signal<Structure[]> = signal([]);
 
-  activeInputTextVariant = 'default';
+  activeInputTextVariant: string = 'default';
 
   inputTextVariants = [
     { label: 'Default', value: 'default' },
@@ -41,11 +41,10 @@ export class InputTextShowcaseComponent implements OnInit {
 
   public ngOnInit(): void {
     this.generateFormByVariant(this.activeInputTextVariant);
-    //this.formGroup.controls.textFieldType.setValue(0);
+    // this.formGroup.controls.textFieldType.setValue(55);
   }
 
   onVariantChange(variant: string): void {
-    this.activeInputTextVariant = variant;
     this.generateFormByVariant(variant);
   }
 
