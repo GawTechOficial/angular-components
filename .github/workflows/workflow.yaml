@@ -15,7 +15,7 @@ jobs:
         run: npm install
       - name: Install Angular CLI
         run: npm install -g @angular/cli@19
-      - name: Build and test
+      - name: Build
         run: |
           ng build angular-components
           npm run build:lib
