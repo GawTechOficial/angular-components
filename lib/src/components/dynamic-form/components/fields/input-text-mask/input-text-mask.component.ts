@@ -9,7 +9,7 @@ import {
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { FieldType, FormField } from '../../../configurations/fields';
-import { GInputLayoutComponent } from '../../layout/g-Input-layout/g-Input-layout.component';
+import { GInputGroupLayoutComponent } from '../../layout/g-input-group-layout/g-input-group-layout.component';
 
 @Component({
   selector: 'g-input-text-mask',
@@ -20,11 +20,11 @@ import { GInputLayoutComponent } from '../../layout/g-Input-layout/g-Input-layou
     CommonModule,
     ReactiveFormsModule,
     InputMaskModule,
-    GInputLayoutComponent,
+    GInputGroupLayoutComponent,
   ],
 })
 export class InputTextMaskComponent implements AfterViewInit {
-  @Input() field!: FormField<FieldType.InputTextMask>;
+  @Input() field!: FormField<string, FieldType.InputTextMask, any>;
   @Input() formControl!: FormControl;
 
   constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}

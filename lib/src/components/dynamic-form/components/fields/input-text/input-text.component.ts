@@ -10,7 +10,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { FieldType, FormField } from '../../../configurations/fields';
-import { GInputLayoutComponent } from '../../layout/g-Input-layout/g-Input-layout.component';
+import { GLabelLayoutComponent } from '../../layout/g-label-layout/g-label-layout.component';
 
 @Component({
   selector: 'g-input-text',
@@ -22,11 +22,11 @@ import { GInputLayoutComponent } from '../../layout/g-Input-layout/g-Input-layou
     ReactiveFormsModule,
     InputTextModule,
     KeyFilterModule,
-    GInputLayoutComponent,
+    GLabelLayoutComponent,
   ],
 })
 export class InputTextComponent implements AfterViewInit {
-  @Input() field!: FormField<FieldType.InputText>;
+  @Input() field!: FormField<string, FieldType.InputText, any>;
   @Input() formControl!: FormControl;
 
   constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}

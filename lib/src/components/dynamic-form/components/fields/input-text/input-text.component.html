@@ -1,4 +1,4 @@
-<g-input-layout [field]="field" [for]="'input-' + field.id">
+<g-label-layout [field]="field" [for]="'input-' + field.id">
   <ng-container *ngIf="field.props?.keyFilter; else noKeyFilter">
     <input
       pInputText
@@ -38,4 +38,4 @@
       (focus)="onFocusHandler($event)"
     />
   </ng-template>
-</g-input-layout>
+</g-label-layout>

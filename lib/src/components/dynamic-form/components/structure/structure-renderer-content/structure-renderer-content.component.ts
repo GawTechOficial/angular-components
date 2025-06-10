@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormField } from '../../../configurations/fields';
+import { AnyFormField, FormField } from '../../../configurations/fields';
 import { Structure } from '../../../configurations/structure/structure';
 import { CommonModule } from '@angular/common';
 import { DynamicFormDirective } from '../../../directives/dynamic-form.directive';
@@ -19,7 +19,7 @@ export class StructureRendererContentComponent {
   @Input() formGroup!: FormGroup;
   @Input() errorMessages?: ControlErrorMessages;
 
-  getTailwindSize(field: FormField): string {
+  getTailwindSize(field: AnyFormField): string {
     const size = field.size ?? {};
     return [
       `col-span-${size.sm ?? 12}`,
