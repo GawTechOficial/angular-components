@@ -20,13 +20,13 @@ jobs:
               ;;
           esac
 
-      - name: Ensure PR into develop is only from feature/*, release/* or hotfix/*
+      - name: Ensure PR into develop is only from main, feature/* or fix/*
         if: github.base_ref == 'develop'
         run: |
           case "${{ github.head_ref }}" in
-            feature/*|release/*|hotfix/*) ;;
+            main|feature/*|fix/*) ;;
             *)
-              echo "❌ Pull Requests to 'develop' are only allowed from 'feature/*', 'release/*', or 'hotfix/*' branches."
+              echo "❌ Pull Requests to 'develop' are only allowed from 'main', 'feature/*', or 'fix/*' branches."
               exit 1
               ;;
           esac
