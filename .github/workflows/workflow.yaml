@@ -20,6 +20,17 @@ jobs:
               ;;
           esac
 
+      - name: Ensure PR into develop is only from feature/*, release/* or hotfix/*
+        if: github.base_ref == 'develop'
+        run: |
+          case "${{ github.head_ref }}" in
+            feature/*|release/*|hotfix/*) ;;
+            *)
+              echo "❌ Pull Requests to 'develop' are only allowed from 'feature/*', 'release/*', or 'hotfix/*' branches."
+              exit 1
+              ;;
+          esac
+
       - name: Using Node.js
         uses: actions/setup-node@v3
         with:
