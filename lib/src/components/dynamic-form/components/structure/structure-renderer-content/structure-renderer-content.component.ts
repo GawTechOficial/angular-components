@@ -1,16 +1,15 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { AnyFormField, FormField } from '../../../configurations/fields';
-import { Structure } from '../../../configurations/structure/structure';
 import { CommonModule } from '@angular/common';
-import { DynamicFormDirective } from '../../../directives/dynamic-form.directive';
-import { ControlErrorsComponent } from '../../../../control-errors/control-errors.component';
+import { Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { ControlErrorMessages } from 'lib/src/components/control-errors/control-error-messages';
+import { ControlErrorsComponent } from '../../../../control-errors/control-errors.component';
+import { AnyFormField } from '../../../configurations/fields';
+import { Structure } from '../../../configurations/structure/structure';
+import { DynamicFormDirective } from '../../../directives/dynamic-form.directive';
 
 @Component({
   selector: 'structure-renderer-content',
   templateUrl: './structure-renderer-content.component.html',
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [CommonModule, DynamicFormDirective, ControlErrorsComponent],
 })

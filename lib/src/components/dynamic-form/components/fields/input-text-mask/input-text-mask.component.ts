@@ -4,7 +4,6 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  ViewEncapsulation,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -14,7 +13,6 @@ import { GInputGroupLayoutComponent } from '../../layout/g-input-group-layout/g-
 @Component({
   selector: 'g-input-text-mask',
   templateUrl: './input-text-mask.component.html',
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [
     CommonModule,

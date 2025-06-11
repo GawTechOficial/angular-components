@@ -5,8 +5,8 @@ import {
   ContentChild,
   Input,
   TemplateRef,
-  ViewEncapsulation,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { IftaLabelModule } from 'primeng/iftalabel';
 import {
@@ -15,20 +15,18 @@ import {
   InputTextMaskProps,
   InputTextProps,
 } from '../../../configurations/fields';
-import { LabelComponent } from '../../fields/label/label.component';
-import { FormControl } from '@angular/forms';
 import {
   LeftAddon,
   RightAddon,
 } from '../../../configurations/fields/props/input-shared-props';
+import { LabelComponent } from '../../fields/label/label.component';
 
-import { GInputGroupLayoutComponent } from '../g-input-group-layout/g-input-group-layout.component';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { GInputGroupLayoutComponent } from '../g-input-group-layout/g-input-group-layout.component';
 @Component({
   selector: 'g-label-layout',
   templateUrl: './g-label-layout.component.html',
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [
     CommonModule,

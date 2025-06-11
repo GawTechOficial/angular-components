@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Signal, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Signal } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { StructureFieldsComponent } from './components/structure';
 import { Structure } from './configurations/structure';
@@ -7,7 +7,6 @@ import { Structure } from './configurations/structure';
 @Component({
   selector: 'g-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, StructureFieldsComponent],
 })

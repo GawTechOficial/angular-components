@@ -4,7 +4,6 @@ import {
   ChangeDetectorRef,
   Component,
   Input,
-  ViewEncapsulation,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
@@ -15,7 +14,6 @@ import { GLabelLayoutComponent } from '../../layout/g-label-layout/g-label-layou
 @Component({
   selector: 'g-input-text',
   templateUrl: './input-text.component.html',
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [
     CommonModule,

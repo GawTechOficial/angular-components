@@ -1,12 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  AfterContentInit,
-  Component,
-  ContentChild,
-  Input,
-  TemplateRef,
-  ViewEncapsulation,
-} from '@angular/core';
+import { AfterContentInit, Component, Input, TemplateRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { IconFieldModule } from 'primeng/iconfield';
@@ -30,7 +23,6 @@ import {
   selector: 'g-input-layout',
   templateUrl: './g-input-group-layout.component.html',
   standalone: true,
-  encapsulation: ViewEncapsulation.None,
   imports: [
     CommonModule,
     InputGroupModule,
