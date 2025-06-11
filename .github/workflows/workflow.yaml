@@ -9,13 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Ensure PR into main is only from develop, release/* or hotfix/*
+      - name: Ensure PR into main is only from release/* or hotfix/*
         if: github.base_ref == 'main'
         run: |
           case "${{ github.head_ref }}" in
-            develop|release/*|hotfix/*) ;;
+            release/*|hotfix/*) ;;
             *)
-              echo "❌ Pull Requests to 'main' are only allowed from 'develop', 'release/*', or 'hotfix/*' branches."
+              echo "❌ Pull Requests to 'main' are only allowed from 'release/*', or 'hotfix/*' branches."
               exit 1
               ;;
           esac
