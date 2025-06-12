@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: Angular CI
 
 on:
   pull_request:
