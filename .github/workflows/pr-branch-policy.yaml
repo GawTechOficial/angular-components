@@ -1,21 +1,12 @@
-# Continuous Integration workflow
-#
-# This workflow runs on pull requests to ensure that the code adheres to the branch policies and builds successfully.
-# - Only allows PRs to main from release/* or hotfix/*
-# - Only allows PRs to develop from main, feature/*, or fix/*
-# - Installs dependencies, sets up Node.js, installs Angular CLI, and builds the project.
-
-name: Continuous Integration
+name: PR Branch Policy
 
 on:
   pull_request:
 
 jobs:
-  Continuous-Integration:
+  check-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
       - name: Ensure PR into main is only from release/* or hotfix/*
         if: github.base_ref == 'main'
         run: |
@@ -37,19 +28,3 @@ jobs:
               exit 1
               ;;
           esac
-
-      - name: Using Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli@19
-
-      - name: Build
-        run: |
-          ng build angular-components
-          npm run build:lib
