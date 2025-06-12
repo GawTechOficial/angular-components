@@ -16,10 +16,18 @@ jobs:
       id-token: write
 
     steps:
+      - name: Generate GitHub App Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.RELEASE_BOT_APPID }}
+          private-key: ${{ secrets.RELEASE_BOT_KEY }}
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -31,5 +39,5 @@ jobs:
 
       - name: Semantic Release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: npx semantic-release
