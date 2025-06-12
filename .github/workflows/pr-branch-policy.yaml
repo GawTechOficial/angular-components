@@ -1,0 +1,30 @@
+name: PR Branch Policy
+
+on:
+  pull_request:
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure PR into main is only from release/* or hotfix/*
+        if: github.base_ref == 'main'
+        run: |
+          case "${{ github.head_ref }}" in
+            release/*|hotfix/*) ;;
+            *)
+              echo "❌ Pull Requests to 'main' are only allowed from 'release/*', or 'hotfix/*' branches."
+              exit 1
+              ;;
+          esac
+
+      - name: Ensure PR into develop is only from main, feature/* or fix/*
+        if: github.base_ref == 'develop'
+        run: |
+          case "${{ github.head_ref }}" in
+            main|feature/*|fix/*) ;;
+            *)
+              echo "❌ Pull Requests to 'develop' are only allowed from 'main', 'feature/*', or 'fix/*' branches."
+              exit 1
+              ;;
+          esac
