@@ -1,6 +1,6 @@
 {
   "name": "angular-components",
-  "version": "0.1.9",
+  "version": "1.0.0",
   "scripts": {
     "start": "ng serve --port 4300",
     "build": "ng build",
