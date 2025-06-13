@@ -38,9 +38,9 @@ npm install @angular/common@^19 @angular/core@^19 @angular/forms@^19 @angular/pl
 
 ## Available Components
 
-- **g-breadcrumb** – Breadcrumb navigation component. [Documentação](src/components/breadcrumb/README.md).
-- **g-control-errors** – Standardized validation error messages. [Documentação](src/components/control-errors/README.md).
-- **Formulário Dinâmico** _(beta)_ – Renders forms dynamically from configuration objects. [Documentação](src/components/dynamic-form/README.md).
+- **g-breadcrumb** – Breadcrumb navigation component. [Documentation](lib/src/components/breadcrumb/README.md).
+- **g-control-errors** – Standardized validation error messages. [Documentation](lib/src/components/control-errors/README.md).
+- **Formulário Dinâmico** _(beta)_ – Renders forms dynamically from configuration objects. [Documentation](lib/src/components/dynamic-form/README.md).
 
 ## Roadmap
 
