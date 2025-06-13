@@ -1,21 +1,25 @@
 # Control Errors
 
-O objetivo deste módulo é prover um componente para exibição padronizada de mensagens de erro de validação para campos de formulário.
+The purpose of this module is to provide a component for standardized display of validation error messages for form fields.
 
 ## Features
 
-- Mensagens de erro para campos de formulário
+- Standardized error messages for form fields
 
-## Dependências
+## Requirements
 
-- [PrimeNG](https://www.npmjs.com/package/primeng)
+- Angular v19+
+- PrimeNG v19+
+- @primeng/themes (for theme support)
+- Tailwind CSS v3+ (with `tailwindcss-primeui` plugin)
+- tailwindcss-primeui (for full integration with PrimeNG)
 
-## Utilização
+## Usage
 
-[**Exemplo completo de implementação**](../../../../src/app/components/control-errors-showcase)
+[**Complete implementation example**](../../../../src/app/components/control-errors-showcase)
 
-- **Componente**: `ControlErrorsComponent`
-- **Seletor**: `g-control-errors`
+- **Component**: `ControlErrorsComponent`
+- **Selector**: `g-control-errors`
 
 ### Import
 
@@ -23,7 +27,7 @@ O objetivo deste módulo é prover um componente para exibição padronizada de 
 import { ControlErrorsModule } from "@gawtech/angular-components";
 ```
 
-### Exemplo de utilização simples
+### Basic Usage Example
 
 ```html
 <form [formGroup]="formGroup" novalidate>
@@ -31,15 +35,15 @@ import { ControlErrorsModule } from "@gawtech/angular-components";
   <g-control-errors
     [control]="formGroup.controls['client']"
     [errorMessages]="{
-        required: 'Esse campo é obrigatorio!',
-        min: 'Esse cadastro é apenas para maiores de idade',
-        max: 'A medicina ainda não nos permite viver tanto!'
+      required: 'This field is required!',
+      min: 'Only for adults.',
+      max: 'That is beyond the current limits of medicine!'
     }"
   ></g-control-errors>
 </form>
 ```
 
-### Exemplo de utilização com tradução
+### Example with Translations
 
 ```html
 <form [formGroup]="formGroup" novalidate>
@@ -47,9 +51,9 @@ import { ControlErrorsModule } from "@gawtech/angular-components";
   <g-control-errors
     [control]="formGroup.controls['client']"
     [errorMessages]="{
-        required: ('error_required' | translate),
-        min: ('error_min_value' | translate: {value: 0}),
-        max: ('error_max_value' | translate: {value: 5})
+      required: ('error_required' | translate),
+      min: ('error_min_value' | translate: {value: 0}),
+      max: ('error_max_value' | translate: {value: 5})
     }"
   ></g-control-errors>
 </form>
@@ -57,8 +61,8 @@ import { ControlErrorsModule } from "@gawtech/angular-components";
 
 ### Inputs
 
-| Nome          | Tipo          | Valor Padrão                   | Obrigatório | Descrição                                                               |
-| :------------ | :------------ | :----------------------------- | :---------- | :---------------------------------------------------------------------- |
-| id            | `string`      | `g-control-errors-${nextId++}` | Não         | Id do componente. Utilizado como prefixo para id dos elementos internos |
-| control       | `FormControl` | N/A                            | Sim         | Controlador do qual se obterão os erros                                 |
-| errorMessages | `object`      | `{}`                           | Sim         | Objeto com chave de erro e mensagem que deverá ser exibida              |
+| Name          | Type          | Default Value                  | Required | Description                                                   |
+| :------------ | :------------ | :----------------------------- | :------- | :------------------------------------------------------------ |
+| id            | `string`      | `g-control-errors-${nextId++}` | No       | Component ID. Used as prefix for internal element IDs         |
+| control       | `FormControl` | N/A                            | Yes      | The form control from which errors will be displayed          |
+| errorMessages | `object`      | `{}`                           | Yes      | Object with error keys and messages to display for each error |

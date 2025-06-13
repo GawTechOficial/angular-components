@@ -1,9 +1,17 @@
 {
   "name": "@gawtech/angular-components",
-  "version": "0.1.9",
+  "version": "1.0.0",
   "description": "Componentes Angular desenvolvidos pela GawTech",
   "author": "GawTech <contato@gawtech.com.br>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GawTechOficial/angular-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GawTechOficial/angular-components/issues"
+  },
+  "homepage": "https://github.com/GawTechOficial/angular-components#readme",
   "peerDependencies": {
     "@angular/common": "^19.2.0",
     "@angular/core": "^19.2.0",
