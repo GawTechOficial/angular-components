@@ -156,8 +156,8 @@ export class UserFormComponent implements OnInit {
 
 | Name       | Type          | Required | Description                                    |
 | ---------- | ------------- | -------- | ---------------------------------------------- |
-| formGroup  | `FormGroup`   | Yes      | Array of section or panel                      |
-| structures | `Structure[]` | Yes      | Angular FormGroup instance to control the form |
+| formGroup  | `FormGroup`   | Yes      | Angular FormGroup instance to control the form |
+| structures | `Structure[]` | Yes      | Array of section or panel                      |
 
 ## Theming
 
