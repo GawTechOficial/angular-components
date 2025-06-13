@@ -1,63 +1,53 @@
-# Ui
+# Angular Components Library
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+[![npm version](https://img.shields.io/npm/v/@gawtech/angular-components.svg)](https://www.npmjs.com/package/@gawtech/angular-components)
+[![npm downloads](https://img.shields.io/npm/dm/@gawtech/angular-components.svg)](https://www.npmjs.com/package/@gawtech/angular-components)
+[![License: MIT](https://img.shields.io/npm/l/@gawtech/angular-components.svg)](LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/GawTechOficial/angular-components)](https://github.com/GawTechOficial/angular-components/issues)
 
-## Code scaffolding
+A collection of reusable Angular components to accelerate your development.  
+Each component is documented individually—refer to their respective documentation for detailed usage and examples.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Installation
 
 ```bash
-ng generate --help
+npm install @gawtech/angular-components
 ```
 
-## Building
+## Main Requirements
 
-To build the library, run:
+Before using this library, ensure your project meets the following requirements:
+
+- Angular v19+
+- PrimeNG v19+
+- @primeng/themes (for theme support)
+- Tailwind CSS v3+ (with tailwindcss-primeui plugin)
+- tailwindcss-primeui (for PrimeNG + Tailwind integration)
+- @angular/forms and rxjs (for reactive forms and observables)
+
+## Install All Required Peer Dependencies
+
+You can quickly install all necessary peer dependencies with this command:
 
 ```bash
-ng build ui
+npm install @angular/common@^19 @angular/core@^19 @angular/forms@^19 @angular/platform-browser@^19 primeng@^19 @primeng/themes@^19 rxjs@~7.8 tailwindcss@^3 tailwindcss-primeui@^0.6
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+> **Note**  
+> It is highly recommended to always use the versions specified in peerDependencies for maximum compatibility.
 
-### Publishing the Library
+## Available Components
 
-Once the project is built, you can publish your library by following these steps:
+- **g-breadcrumb** – Breadcrumb navigation component. [Documentação](src/components/breadcrumb/README.md).
+- **g-control-errors** – Standardized validation error messages. [Documentação](src/components/control-errors/README.md).
+- **Formulário Dinâmico** _(beta)_ – Renders forms dynamically from configuration objects. [Documentação](src/components/dynamic-form/README.md).
 
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/ui
-   ```
+## Roadmap
 
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
+This library is under active development.
+New components and features will be added in future releases.
 
-## Running unit tests
+## Contributing
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Contributions, bug reports, and suggestions are welcome!
+Feel free to open an issue or submit a pull request.
