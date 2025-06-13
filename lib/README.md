@@ -1,11 +1,9 @@
 # Angular Components Library
 
-```markdown
 [![npm version](https://img.shields.io/npm/v/@gawtech/angular-components.svg)](https://www.npmjs.com/package/@gawtech/angular-components)
 [![npm downloads](https://img.shields.io/npm/dm/@gawtech/angular-components.svg)](https://www.npmjs.com/package/@gawtech/angular-components)
 [![License: MIT](https://img.shields.io/npm/l/@gawtech/angular-components.svg)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/GawTechOficial/angular-components)](https://github.com/GawTechOficial/angular-components/issues)
-```
 
 A collection of reusable Angular components to accelerate your development.  
 Each component is documented individually—refer to their respective documentation for detailed usage and examples.
