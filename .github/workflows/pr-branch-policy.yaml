@@ -7,13 +7,13 @@ jobs:
   check-branch:
     runs-on: ubuntu-latest
     steps:
-      - name: Ensure PR into main is only from release/* or hotfix/*
+      - name: Ensure PR into main is only from develop or hotfix/*
         if: github.base_ref == 'main'
         run: |
           case "${{ github.head_ref }}" in
-            release/*|hotfix/*) ;;
+            develop|hotfix/*) ;;
             *)
-              echo "❌ Pull Requests to 'main' are only allowed from 'release/*', or 'hotfix/*' branches."
+              echo "❌ Pull Requests to 'main' are only allowed from 'develop', or 'hotfix/*' branches."
               exit 1
               ;;
           esac
